@@ -10,5 +10,11 @@
     		cat b.txt c.txt > a.txt
 	```
 	- 也就是说，make a.txt 这条命令的背后，实际上分成两步：第一步，确认 b.txt 和 c.txt 必须已经存在，第二步使用 cat 命令 将这个两个文件合并，输出为新文件。
-
+	- 像这样的规则，都写在一个叫做Makefile的文件中，Make命令依赖这个文件进行构建。Makefile文件也可以写为makefile， 或者用命令行参数指定为其他文件名。
+	```
+	$ make -f rules.txt
+	# 或者
+	$ make --file=rules.txt
+	```
+	- 
 
