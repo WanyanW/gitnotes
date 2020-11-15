@@ -1,1 +1,144 @@
-<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-659c4c07-e7b1-4c07-bed9-8ab00785f635"></attachment><p><br></p>
+<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-659c4c07-e7b1-4c07-bed9-8ab00785f635"></attachment><h1>What is a Makefile and how does it work?</h1><h2>Run and compile your programs more efficiently with this handy automation tool.</h2><p>22 Aug 2018&nbsp;<a href="https://opensource.com/users/psachin" target="_blank" style="color: rgb(0, 152, 195);">Sachin Patil&nbsp;(Red Hat)</a>&nbsp;<a href="https://opensource.com/user/57526/feed" target="_blank" style="background-color: initial; color: rgb(0, 152, 195);">Feed</a>&nbsp;415<a href="https://opensource.com/article/18/8/what-how-makefile?rate=s--qHDuYxPcijgRpbrqekPkv3vc82eNOPjq3QuZLC3g" target="_blank" style="background-color: initial; color: rgb(0, 152, 195);">up</a>&nbsp;<a href="https://opensource.com/article/18/8/what-how-makefile#comments" target="_blank" style="color: rgb(0, 152, 195);">8 comments</a></p><p><img src="https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/osdc_liberate%20docs_1109ay.png?itok=xQOLreya" alt="Cutting open documents" height="292" width="520"></p><p><strong><em>Image by :&nbsp;</em></strong></p><p><em>Opensource.com</em></p><p>If you want to run or update a task when certain files are updated, the&nbsp;<code><strong>make</strong></code>&nbsp;utility can come in handy. The&nbsp;<code><strong>make</strong></code>&nbsp;utility requires a file,&nbsp;<code><strong>Makefile</strong></code>&nbsp;(or&nbsp;<code><strong>makefile</strong></code>), which defines set of tasks to be executed. You may have used&nbsp;<code><strong>make</strong></code>&nbsp;to compile a program from source code. Most open source projects use&nbsp;<code><strong>make</strong></code>&nbsp;to compile a final executable binary, which can then be installed using&nbsp;<code><strong>make install</strong></code>.</p><p>In this article, we'll explore&nbsp;<code><strong>make</strong></code>&nbsp;and&nbsp;<code><strong>Makefile</strong></code>&nbsp;using basic and advanced examples. Before you start, ensure that&nbsp;<code><strong>make</strong></code>&nbsp;is installed in your system.</p><h2>Basic examples</h2><p>Let's start by printing the classic "Hello World" on the terminal. Create a empty directory&nbsp;<code><strong>myproject</strong></code>&nbsp;containing a file&nbsp;<code><strong>Makefile</strong></code>&nbsp;with this content:</p><pre class="ql-syntax" spellcheck="false">say_hello:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"Hello World"
+</pre><p>Now run the file by typing&nbsp;<code><strong>make</strong></code>&nbsp;inside the directory&nbsp;<code><strong>myproject</strong></code>. The output will be:</p><pre class="ql-syntax" spellcheck="false">$&nbsp;make
+echo&nbsp;"Hello World"
+Hello World
+</pre><p>In the example above,&nbsp;<code><strong>say_hello</strong></code>&nbsp;behaves like a function name, as in any programming language. This is called the&nbsp;<em>target</em>. The&nbsp;<em>prerequisites</em>&nbsp;or&nbsp;<em>dependencies</em>&nbsp;follow the target. For the sake of simplicity, we have not defined any prerequisites in this example. The command&nbsp;<code><strong>echo "Hello World"</strong></code>&nbsp;is called the&nbsp;<em>recipe</em>. The&nbsp;<em>recipe</em>&nbsp;uses&nbsp;<em>prerequisites</em>&nbsp;to make a&nbsp;<em>target</em>. The target, prerequisites, and recipes together make a&nbsp;<em>rule</em>.</p><p>To summarize, below is the syntax of a typical rule:</p><pre class="ql-syntax" spellcheck="false">target: prerequisites
+&lt;TAB&gt;&nbsp;recipe
+</pre><p>As an example, a target might be a binary file that depends on prerequisites (source files). On the other hand, a prerequisite can also be a target that depends on other dependencies:</p><pre class="ql-syntax" spellcheck="false">final_target: sub_target final_target.c
+&nbsp;&nbsp;&nbsp;&nbsp;Recipe_to_create_final_target
+
+sub_target: sub_target.c
+&nbsp;&nbsp;&nbsp;&nbsp;Recipe_to_create_sub_target
+</pre><p>It is not necessary for the target to be a file; it could be just a name for the recipe, as in our example. We call these "phony targets."</p><p>Going back to the example above, when&nbsp;<code><strong>make</strong></code>&nbsp;was executed, the entire command&nbsp;<code><strong>echo "Hello World"</strong></code>&nbsp;was displayed, followed by actual command output. We often don't want that. To suppress echoing the actual command, we need to start&nbsp;<code><strong>echo</strong></code>&nbsp;with&nbsp;<code><strong>@</strong></code>:</p><pre class="ql-syntax" spellcheck="false">say_hello:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Hello World"
+</pre><p>Now try to run&nbsp;<code><strong>make</strong></code>&nbsp;again. The output should display only this:</p><pre class="ql-syntax" spellcheck="false">$&nbsp;make
+Hello World
+</pre><p>Let's add a few more phony targets:&nbsp;<code><strong>generate</strong></code>&nbsp;and&nbsp;<code><strong>clean</strong></code>&nbsp;to the&nbsp;<code><strong>Makefile</strong></code>:</p><pre class="ql-syntax" spellcheck="false">say_hello:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Hello World"
+
+generate:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Creating empty text files..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;touch&nbsp;file-{1..10}.txt
+
+clean:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Cleaning up..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rm&nbsp;*.txt
+</pre><p>If we try to run&nbsp;<code><strong>make</strong></code>&nbsp;after the changes, only the target&nbsp;<code><strong>say_hello</strong></code>&nbsp;will be executed. That's because only the first target in the makefile is the default target. Often called the&nbsp;<em>default goal</em>, this is the reason you will see&nbsp;<code><strong>all</strong></code>&nbsp;as the first target in most projects. It is the responsibility of&nbsp;<code><strong>all</strong></code>&nbsp;to call other targets. We can override this behavior using a special phony target called&nbsp;<code><strong>.DEFAULT_GOAL</strong></code>.</p><p>Let's include that at the beginning of our makefile:</p><pre class="ql-syntax" spellcheck="false">.DEFAULT_GOAL := generate
+</pre><p>This will run the target&nbsp;<code><strong>generate</strong></code>&nbsp;as the default:</p><pre class="ql-syntax" spellcheck="false">$&nbsp;make
+Creating empty text files...
+touch&nbsp;file-{1..10}.txt
+</pre><p>As the name suggests, the phony target&nbsp;<code><strong>.DEFAULT_GOAL</strong></code>&nbsp;can run only one target at a time. This is why most makefiles include&nbsp;<code><strong>all</strong></code>&nbsp;as a target that can call as many targets as needed.</p><p>Let's include the phony target&nbsp;<code><strong>all</strong></code>&nbsp;and remove&nbsp;<code><strong>.DEFAULT_GOAL</strong></code>:</p><pre class="ql-syntax" spellcheck="false">all: say_hello generate
+
+say_hello:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Hello World"
+
+generate:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Creating empty text files..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;touch&nbsp;file-{1..10}.txt
+
+clean:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Cleaning up..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rm&nbsp;*.txt
+</pre><p>Before running&nbsp;<code><strong>make</strong></code>, let's include another special phony target,&nbsp;<code><strong>.PHONY</strong></code>, where we define all the targets that are not files.&nbsp;<code><strong>make</strong></code>&nbsp;will run its recipe regardless of whether a file with that name exists or what its last modification time is. Here is the complete makefile:</p><pre class="ql-syntax" spellcheck="false">.PHONY: all say_hello generate clean
+
+all: say_hello generate
+
+say_hello:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Hello World"
+
+generate:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Creating empty text files..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;touch&nbsp;file-{1..10}.txt
+
+clean:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@echo&nbsp;"Cleaning up..."
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rm&nbsp;*.txt
+</pre><p>The&nbsp;<code><strong>make</strong></code>&nbsp;should call&nbsp;<code><strong>say_hello</strong></code>&nbsp;and&nbsp;<code><strong>generate</strong></code>:</p><pre class="ql-syntax" spellcheck="false">$&nbsp;make
+Hello World
+Creating empty text files...
+touch&nbsp;file-{1..10}.txt
+</pre><p>It is a good practice not to call&nbsp;<code><strong>clean</strong></code>&nbsp;in&nbsp;<code><strong>all</strong></code>&nbsp;or put it as the first target.&nbsp;<code><strong>clean</strong></code>&nbsp;should be called manually when cleaning is needed as a first argument to&nbsp;<code><strong>make</strong></code>:</p><pre class="ql-syntax" spellcheck="false">$&nbsp;make&nbsp;clean
+Cleaning up...
+rm&nbsp;*.txt
+</pre><p>Now that you have an idea of how a basic makefile works and how to write a simple makefile, let's look at some more advanced examples.</p><h2>Advanced examples</h2><h3>Variables</h3><p>More Linux resources</p><ul><li><a href="https://developers.redhat.com/cheat-sheets/linux-commands-cheat-sheet/?intcmp=70160000000h1jYAAQ&amp;utm_source=intcallout&amp;utm_campaign=linuxcontent" target="_blank" style="color: rgb(0, 152, 195);">Linux commands cheat sheet</a></li><li><a href="https://developers.redhat.com/cheat-sheets/advanced-linux-commands/?intcmp=70160000000h1jYAAQ&amp;utm_source=intcallout&amp;utm_campaign=linuxcontent" target="_blank" style="color: rgb(0, 152, 195);">Advanced Linux commands cheat sheet</a></li><li><a href="https://www.redhat.com/en/services/training/rh024-red-hat-linux-technical-overview?intcmp=70160000000h1jYAAQ&amp;utm_source=intcallout&amp;utm_campaign=linuxcontent" target="_blank" style="color: rgb(0, 152, 195);">Free online course: RHEL Technical Overview</a></li><li><a href="https://opensource.com/downloads/cheat-sheet-networking?intcmp=70160000000h1jYAAQ&amp;utm_source=intcallout&amp;utm_campaign=linuxcontent" target="_blank" style="color: rgb(0, 152, 195);">Linux networking cheat sheet</a></li><li><a href="https://opensource.com/downloads/cheat-sheet-selinux?intcmp=70160000000h1jYAAQ&amp;utm_source=intcallout&amp;utm_campaign=linuxcontent" target="_blank" style="color: rgb(0, 152, 195);">SELinux cheat sheet</a></li><li><a href="https://opensource.com/downloads/linux-common-commands-cheat-sheet?intcmp=70160000000h1jYAAQ&amp;utm_source=intcallout&amp;utm_campaign=linuxcontent" target="_blank" style="color: rgb(0, 152, 195);">Linux common commands cheat sheet</a></li><li><a href="https://opensource.com/resources/what-are-linux-containers?intcmp=70160000000h1jYAAQ&amp;utm_source=intcallout&amp;utm_campaign=linuxcontent" target="_blank" style="color: rgb(0, 152, 195);">What are Linux containers?</a></li><li><a href="https://opensource.com/tags/linux?intcmp=70160000000h1jYAAQ&amp;utm_source=intcallout&amp;utm_campaign=linuxcontent" target="_blank" style="color: rgb(0, 152, 195);">Our latest Linux articles</a></li></ul><p>In the above example, most target and prerequisite values are hard-coded, but in real projects, these are replaced with variables and patterns.The simplest way to define a variable in a makefile is to use the&nbsp;<code><strong>=</strong></code>&nbsp;operator. For example, to assign the command&nbsp;<code><strong>gcc</strong></code>&nbsp;to a variable&nbsp;<code><strong>CC</strong></code>:</p><pre class="ql-syntax" spellcheck="false">CC = gcc
+</pre><p>This is also called a&nbsp;<em>recursive expanded variable</em>, and it is used in a rule as shown below:</p><pre class="ql-syntax" spellcheck="false">hello: hello.c
+&nbsp;&nbsp;&nbsp;${CC}&nbsp;hello.c&nbsp;-o&nbsp;hello
+</pre><p>As you may have guessed, the recipe expands as below when it is passed to the terminal:</p><pre class="ql-syntax" spellcheck="false">gcc hello.c -o hello
+</pre><p>Both&nbsp;<code><strong>${CC}</strong></code>&nbsp;and&nbsp;<code><strong>$(CC)</strong></code>&nbsp;are valid references to call&nbsp;<code><strong>gcc</strong></code>. But if one tries to reassign a variable to itself, it will cause an infinite loop. Let's verify this:</p><pre class="ql-syntax" spellcheck="false">CC =&nbsp;gcc
+CC =&nbsp;${CC}
+
+all:
+&nbsp;&nbsp;&nbsp;@echo&nbsp;${CC}
+</pre><p>Running&nbsp;<code><strong>make</strong></code>&nbsp;will result in:</p><pre class="ql-syntax" spellcheck="false">$&nbsp;make
+Makefile:8:&nbsp;***&nbsp;Recursive variable&nbsp;'CC'&nbsp;references itself&nbsp;(eventually).&nbsp;Stop.
+</pre><p>To avoid this scenario, we can use the&nbsp;<code><strong>:=</strong></code>&nbsp;operator (this is also called the&nbsp;<em>simply expanded variable</em>). We should have no problem running the makefile below:</p><pre class="ql-syntax" spellcheck="false">CC :=&nbsp;gcc
+CC :=&nbsp;${CC}
+
+all:
+&nbsp;&nbsp;&nbsp;@echo&nbsp;${CC}
+</pre><h3>Patterns and functions</h3><p>The following makefile can compile all C programs by using variables, patterns, and functions. Let's explore it line by line:</p><pre class="ql-syntax" spellcheck="false"># Usage:
+# make&nbsp;&nbsp;&nbsp;&nbsp;# compile all binary
+# make clean&nbsp;# remove ALL binaries and objects
+
+.PHONY = all clean
+
+CC = gcc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# compiler to use
+
+LINKERFLAG = -lm
+
+SRCS := $(wildcard *.c)
+BINS := $(SRCS:%.c=%)
+
+all: ${BINS}
+
+%: %.o
+&nbsp;&nbsp;&nbsp;&nbsp;@echo "Checking.."
+&nbsp;&nbsp;&nbsp;&nbsp;${CC} ${LINKERFLAG} $&lt; -o $@
+
+%.o: %.c
+&nbsp;&nbsp;&nbsp;&nbsp;@echo "Creating object.."
+&nbsp;&nbsp;&nbsp;&nbsp;${CC} -c $&lt;
+
+clean:
+&nbsp;&nbsp;&nbsp;&nbsp;@echo "Cleaning up..."
+&nbsp;&nbsp;&nbsp;&nbsp;rm -rvf *.o ${BINS}
+</pre><ul><li>Lines starting with&nbsp;<code><strong>#</strong></code>&nbsp;are comments.</li><li><br></li><li>Line&nbsp;<code><strong>.PHONY = all clean</strong></code>&nbsp;defines phony targets&nbsp;<code><strong>all</strong></code>&nbsp;and&nbsp;<code><strong>clean</strong></code>.</li><li><br></li><li>Variable&nbsp;<code><strong>LINKERFLAG</strong></code>&nbsp;defines flags to be used with&nbsp;<code><strong>gcc</strong></code>&nbsp;in a recipe.</li><li><br></li><li><code><strong>SRCS := $(wildcard *.c)</strong></code>:&nbsp;<code><strong>$(wildcard pattern)</strong></code>&nbsp;is one of the&nbsp;<em>functions for filenames</em>. In this case, all files with the&nbsp;<code><strong>.c</strong></code>&nbsp;extension will be stored in a variable&nbsp;<code><strong>SRCS</strong></code>.</li><li><code><strong>BINS := $(SRCS:%.c=%)</strong></code>: This is called as&nbsp;<em>substitution reference</em>. In this case, if&nbsp;<code><strong>SRCS</strong></code>&nbsp;has values&nbsp;<code><strong>'foo.c bar.c'</strong></code>,&nbsp;<code><strong>BINS</strong></code>&nbsp;will have&nbsp;<code><strong>'foo bar'</strong></code>.</li><li>Line&nbsp;<code><strong>all: ${BINS}</strong></code>: The phony target&nbsp;<code><strong>all</strong></code>&nbsp;calls values in<code><strong>${BINS}</strong></code>&nbsp;as individual targets.</li><li>Rule:</li></ul><pre class="ql-syntax" spellcheck="false">%:&nbsp;%.o
+&nbsp;&nbsp;@echo&nbsp;"Checking.."
+&nbsp;&nbsp;${CC}&nbsp;${LINKERFLAG}&nbsp;$&amp;lt;&nbsp;-o&nbsp;$@
+</pre><ul><li>Let's look at an example to understand this rule. Suppose&nbsp;<code><strong>foo</strong></code>&nbsp;is one of the values in&nbsp;<code><strong>${BINS}</strong></code>. Then&nbsp;<code><strong>%</strong></code>&nbsp;will match&nbsp;<code><strong>foo</strong></code>(<code><strong>%</strong></code>&nbsp;can match any target name). Below is the rule in its expanded form:</li></ul><pre class="ql-syntax" spellcheck="false">foo: foo.o
+&nbsp;&nbsp;@echo&nbsp;"Checking.."
+&nbsp;&nbsp;gcc&nbsp;-lm&nbsp;foo.o&nbsp;-o&nbsp;foo
+</pre><ul><li>As shown,&nbsp;<code><strong>%</strong></code>&nbsp;is replaced by&nbsp;<code><strong>foo</strong></code>.&nbsp;<code><strong>$&lt;</strong></code>&nbsp;is replaced by&nbsp;<code><strong>foo.o</strong></code>.&nbsp;<code><strong>$&lt;</strong></code>&nbsp;is patterned to match prerequisites and&nbsp;<code><strong>$@</strong></code>&nbsp;matches the target. This rule will be called for every value in&nbsp;<code><strong>${BINS}</strong></code></li><li>Rule:</li></ul><pre class="ql-syntax" spellcheck="false">%.o:&nbsp;%.c
+&nbsp;&nbsp;@echo&nbsp;"Creating object.."
+&nbsp;&nbsp;${CC}&nbsp;-c&nbsp;$&amp;lt;
+</pre><ul><li>Every prerequisite in the previous rule is considered a target for this rule. Below is the rule in its expanded form:</li></ul><pre class="ql-syntax" spellcheck="false">foo.o: foo.c
+&nbsp;&nbsp;@echo&nbsp;"Creating object.."
+&nbsp;&nbsp;gcc&nbsp;-c&nbsp;foo.c
+</pre><ul><li>Finally, we remove all binaries and object files in target&nbsp;<code><strong>clean</strong></code>.</li></ul><p>Below is the rewrite of the above makefile, assuming it is placed in the directory having a single file&nbsp;<code><strong>foo.c:</strong></code></p><pre class="ql-syntax" spellcheck="false"># Usage:
+# make&nbsp;&nbsp;&nbsp;&nbsp;# compile all binary
+# make clean&nbsp;# remove ALL binaries and objects
+
+.PHONY = all clean
+
+CC = gcc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# compiler to use
+
+LINKERFLAG = -lm
+
+SRCS := foo.c
+BINS := foo
+
+all: foo
+
+foo: foo.o
+&nbsp;&nbsp;&nbsp;&nbsp;@echo "Checking.."
+&nbsp;&nbsp;&nbsp;&nbsp;gcc -lm foo.o -o foo
+
+foo.o: foo.c
+&nbsp;&nbsp;&nbsp;&nbsp;@echo "Creating object.."
+&nbsp;&nbsp;&nbsp;&nbsp;gcc -c foo.c
+
+clean:
+&nbsp;&nbsp;&nbsp;&nbsp;@echo "Cleaning up..."
+&nbsp;&nbsp;&nbsp;&nbsp;rm -rvf foo.o foo
+</pre><p><br></p>
