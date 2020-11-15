@@ -5,11 +5,13 @@
 	`$ make a.txt`
 	- 但是，如果你真的输入这条命令，它并不会起作用。因为Make命令本身并不知道，如何做出a.txt，需要有人告诉它，如何调用其他命令完成这个目标。
 	- 比如，假设文件 a.txt 依赖于 b.txt 和 c.txt ，是后面两个文件连接（cat命令）的产物。那么，make 需要知道下面的规则。
-	-
+	```
+	a.txt: b.txt c.txt
+    		cat b.txt c.txt > a.txt
+	```
 
 
-a.txt: b.txt c.txt
-    cat b.txt c.txt > a.txt
+
 也就是说，make a.txt 这条命令的背后，实际上分成两步：第一步，确认 b.txt 和 c.txt 必须已经存在，第二步使用 cat 命令 将这个两个文件合并，输出为新文件。
 
 
