@@ -1,2 +1,4 @@
 1. string, list, tuple are sequence types
-	1. sequence 
+	1. sequence is a ordered collection
+	2. can be "" or '' 
+	3. if 
