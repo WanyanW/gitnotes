@@ -6,4 +6,4 @@
 	4. convert string to intger - int(string) or float - float(string)
 2. list - sequence of any type of value
 	1. [..., ..., ...]
-	2. can contain diff types 
+	2. can contain diff types  
