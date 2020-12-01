@@ -1,4 +1,4 @@
-# 一级标题string and list
+#  string and list
 1. string, list, tuple are sequence types
 	1. sequence is a ordered collection
 	2. can be "" or '' 
