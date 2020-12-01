@@ -1,4 +1,4 @@
 1. string, list, tuple are sequence types
 	1. sequence is a ordered collection
 	2. can be "" or '' 
-	3. if 
+	3. if the string contains multiple lines, use """ """
