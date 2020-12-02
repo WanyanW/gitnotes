@@ -29,3 +29,5 @@
 	2. e.g. index()
 	`music = "Pull out your music and dancing can begin"`
 	`print(music.index("m")` will get 14
+	if I am searching for substrings, it 
+8. 
