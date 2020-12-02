@@ -10,4 +10,4 @@
 3. Tuple
 	1. inmutable
 	2. (..., ..., ...)
-	3. 
+	3. if the tuple only have one element, e.g. myTuple = (100,); otherwise if m
