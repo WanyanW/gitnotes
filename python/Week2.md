@@ -17,4 +17,4 @@
 	2. string[index]
 	3. len(str/list)
 5. slice operator
-	1. 
+	1. list[a
