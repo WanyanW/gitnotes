@@ -8,4 +8,5 @@
 	1. [..., ..., ...]
 	2. can contain diff types  
 3. Tuple
-4. 
+	1. inmutable
+	2. (..., ..., ...
