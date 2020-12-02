@@ -27,5 +27,5 @@
 	`a = "i have had an apple on my desk before!"`
 	`print(a.count("e")` will get 5
 	2. e.g. index()
-	`a = "i have had an apple on my desk before!"`
-	`print(a.count("e")` will get 5
+	`music = "Pull out your music and dancing can begin"`
+	`print(music.index("m")` will get 14
