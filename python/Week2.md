@@ -7,4 +7,5 @@
 2. list - sequence of any type of value
 	1. [..., ..., ...]
 	2. can contain diff types  
-	3. 
+3. Tuple
+4. 
