@@ -38,5 +38,5 @@
 
 ### Iteration
 1. for *loop_variable* in *list*:
-	code...
+	loop code block
 2. 
