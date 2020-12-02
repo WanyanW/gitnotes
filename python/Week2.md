@@ -18,3 +18,5 @@
 	3. len(str/list)
 5. slice operator
 	1. list[a, b] is extracting from list[index a] to list[index b-1]
+6. concatenationa nd repetition
+	1. [1, 2] + [3, 5
