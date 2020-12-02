@@ -9,4 +9,5 @@
 	2. can contain diff types  
 3. Tuple
 	1. inmutable
-	2. (..., ..., ...
+	2. (..., ..., ...)
+	3. 
