@@ -22,4 +22,6 @@
 	1. [1, 2] + [3, 4] 
 	2. ["apple", "pear", "banana"] + [1, 2]
 	3. [0, 1] * 4 get [0,1,0,1,0,1,0,1]
-7. 
+7. call method on sequence
+	1. seq_name.method_name() e.g. count()
+	2. 
