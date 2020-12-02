@@ -16,5 +16,5 @@
 	1. list[index] = list[-(len(list)-index)]
 	2. string[index]
 	3. len(str/list)
-3. slice operator
+5. slice operator
 	1. 
