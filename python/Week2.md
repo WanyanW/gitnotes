@@ -37,4 +37,5 @@
 	3. "/".join(["leaders", "and", "best"]) -- get "leaders/and/best"
 
 ### Iteration
-1. 
+1. for *loop_variable* in *list*:
+	print(
