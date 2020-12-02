@@ -1,4 +1,4 @@
-#  string and list
+###  string and list
 1. string, list, tuple are sequence types
 	1. sequence is a ordered collection
 	2. can be "" or '' 
@@ -35,3 +35,5 @@
 	1. string.split() -- a list of seperated substrings, default splitor is space
 	2. can also designate splitor string.split("e")
 	3. "/".join(["leaders", "and", "best"]) -- get "leaders/and/best"
+
+### Iteration
