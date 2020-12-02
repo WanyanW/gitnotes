@@ -39,4 +39,5 @@
 ### Iteration
 1. for *loop_variable* in *list*:
 	loop code block
-2. 
+2. accumulator pattern
+	1. 
