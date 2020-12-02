@@ -21,4 +21,5 @@
 6. concatenationa nd repetition
 	1. [1, 2] + [3, 4] 
 	2. ["apple", "pear", "banana"] + [1, 2]
-	3. [0, 1] * 4 get [0,1,0,1,0,1,
+	3. [0, 1] * 4 get [0,1,0,1,0,1,0,1]
+7. 
