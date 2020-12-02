@@ -24,4 +24,6 @@
 	3. [0, 1] * 4 get [0,1,0,1,0,1,0,1]
 7. call method on sequence
 	1. seq_name.method_name() e.g. count()
+	`a = "i have had an apple on my desk before!"`
+	`print(a.count("e")` # will get 5
 	2. 
