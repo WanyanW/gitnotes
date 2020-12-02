@@ -26,4 +26,6 @@
 	1. seq_name.method_name() e.g. count()
 	`a = "i have had an apple on my desk before!"`
 	`print(a.count("e")` will get 5
-	2. 
+	2. e.g. index()
+	`a = "i have had an apple on my desk before!"`
+	`print(a.count("e")` will get 5
