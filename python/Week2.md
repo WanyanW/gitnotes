@@ -12,3 +12,6 @@
 	2. (..., ..., ...)
 	3. if the tuple only have one element, e.g. myTuple = (100,); otherwise if myTuple = (100), type(myTuple) is int
 4. index operator
+	1. list[index]
+	2. string[index]
+3. 
