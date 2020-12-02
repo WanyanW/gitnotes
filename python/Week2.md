@@ -34,4 +34,4 @@
 8. splitting and joining strings
 	1. string.split() -- a list of seperated substrings, default splitor is space
 	2. can also designate splitor string.split("e")
-	3. joint
+	3. "/".join(["leaders", "and", "best"]) -- get "leaders/and/best"
