@@ -14,4 +14,5 @@
 4. index operator
 	1. list[index]
 	2. string[index]
+	3. len(str/list)
 3. 
