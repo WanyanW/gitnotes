@@ -31,4 +31,4 @@
 	`print(music.index("m")` will get 14
 	if I am searching for substrings, it search for where it starts
 	`print(music.index("us")` will get 15
-8. 
+8. splitting and joi
