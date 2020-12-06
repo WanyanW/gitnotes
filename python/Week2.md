@@ -50,4 +50,5 @@
 1. ==, !=
 2. and, or, not
 3. in, not in
-	1. 'p' in 'apple' -- True
+	1. 'p' in 'apple' -- True (substring in string)
+	2. '' in 'a' -- True
