@@ -73,10 +73,9 @@ else:
 ```
 3. elif
 ```
-if *condition*:
+if *condition 1*:
 	do something
+elif: *condition 2*:
+	do other thing 1
 else:
-	if *sub-condition*:
-		do other thing 1
-	else:
-		do other thing 2
+	do other thing 2
