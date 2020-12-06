@@ -124,8 +124,6 @@ for n in nums:
 	   b = a
 	   b[0] = 5
 	   print(a) # [5, 82, 83]
-	   print(a == b) # True
-	   # a and b are different list with same values
-	   print(id(a)) 
-	   print(id(b)) # the id of a and b are different
+	   ```
+
 
