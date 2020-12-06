@@ -118,8 +118,18 @@ for n in nums:
 4. aliasing
 	1. the same list has two different names, a and b, we say that it is aliased. Changes made with one alias affect the other
 	2. ``` 
-	   a = [1, 2, 3]
-	   b = [1, 2, 3]
+	   a = [81, 82, 83]
+	   b = [81, 82, 83]
+	   print(a is b) # False
+
+	   b = a #the value of b has been reassigned to the value of a.
+	   b[0] = 5
+	   print(a) # [5, 82, 83]
+	   ```
+5. cloning list
+	1. ``` 
+	   a = [81, 82, 83]
+	   b = a[:]
 	   print(a is b) # False
 
 	   b = a #the value of b has been reassigned to the value of a.
