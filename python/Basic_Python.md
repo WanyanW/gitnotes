@@ -151,4 +151,6 @@ for n in nums:
 6. sort
 	1. mylist.sort() # sort from small to big
 7. remove
-	1. mylist.remove(value)
+	1. mylist.remove(value) #specify the value, diff from del mylist[index]
+8. pop
+	1. mylist.pop() # remove the last item
