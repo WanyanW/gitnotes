@@ -102,5 +102,5 @@ for n in nums:
 	```
 	alist = ['a', 'b', 'c', 'd']
 	alist[1:3] = [] # delete elements from index 1 up to not including index 3 
-	2. can also delete by `del alist[]`
+	2. can also delete by `del alist[1:3]`
 3. 
