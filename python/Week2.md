@@ -40,4 +40,4 @@
 1. for *loop_variable* in *list*:
 	loop code block
 2. accumulator pattern
-	1. interate through a list of number and added 
+	1. interate through a list of number and added each to accum variable 
