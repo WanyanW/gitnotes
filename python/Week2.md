@@ -42,4 +42,4 @@
 2. accumulator pattern
 	1. interate through a list of number and added each to accum variable 
 3. Range function
-	1. range(x) equals to [0, 1, 2, ... , x -1] (frome 0 and all the 
+	1. range(x) equals to [0, 1, 2, ... , x -1]
