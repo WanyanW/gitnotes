@@ -164,6 +164,6 @@ for n in nums:
 
 
 ### methods on strings
-1. upper()
-	1. ss.upper()
-2. 
+1. upper(), lower()
+	1. ss.upper() # don't mutate ss
+2. count()
