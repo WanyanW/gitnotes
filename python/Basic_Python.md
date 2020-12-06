@@ -169,5 +169,5 @@ for n in nums:
 2. count() ss.count("l")
 3. strip
 	1. ss.strip() # get rid of white spaces at the start and end
-4. replace
+4. replace #replace substring with substring
 	1. ss.replace("l", "ls")
