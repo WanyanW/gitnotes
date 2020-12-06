@@ -60,3 +60,4 @@ if *condition*:
 else:
 	do other thing
 ```
+1. omitting the cl
