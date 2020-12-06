@@ -96,4 +96,6 @@ for n in nums:
 ```
 
 ### sequence mutation
-1. string is immut
+1. string is immutable
+2. list is mutable
+3. 
