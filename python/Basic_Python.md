@@ -171,4 +171,3 @@ for n in nums:
 	1. ss.strip() # get rid of white spaces at the start and end
 4. replace
 	1. ss.replace("l", "ls")
-5. 
