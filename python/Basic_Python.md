@@ -129,12 +129,13 @@ for n in nums:
 5. cloning list
 	1. ``` 
 	   a = [81, 82, 83]
-	   b = a[:]
+	   b = a[:] # cloining
 	   print(a is b) # False
+	   pritn(a == b) # True
 
-	   b = a #the value of b has been reassigned to the value of a.
 	   b[0] = 5
-	   print(a) # [5, 82, 83]
+	   print(a) # [81, 82, 83]
+	   print(b) # [5, 82, 83]
 	   ```
 
 
