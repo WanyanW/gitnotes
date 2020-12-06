@@ -98,4 +98,7 @@ for n in nums:
 ### sequence mutation
 1. string is immutable
 2. list is mutable
-3. 
+	1. delete some elements: 
+	```
+	alist = ['a', 'b', 'c', 'd']
+	alist
