@@ -60,4 +60,5 @@ if *condition*:
 else:
 	do other thing
 ```
-1. omitting the cl
+1. omitting the cluse: unary selection
+2. 
