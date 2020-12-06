@@ -115,5 +115,6 @@ for n in nums:
 	   print(id(a)) 
 	   print(id(b)) # the id of a and b are different
 	```
-	3. 
+4. aliasing
+	1. 
 
