@@ -47,4 +47,6 @@
 	3. range() don't produce a list, you have to cast `range` to the list by list(range(5))
 
 ### Boolean expression
-1. == and !=
+1. ==, !=
+2. and, or, not
+3. 
