@@ -144,8 +144,8 @@ for n in nums:
 	```
 	origlist = [45,32,88]
  	aliaslist = origlist
- 	origlist += ["cat"]
- 	origlist = origlist + ["cow"] 
+ 	origlist += ["cat"] # aliaslist is also been added with 
+ 	origlist = origlist + ["cow"] # now origlist is different with the aliaslist
 	```
 2. insert
 	1. mylist.insert(index, value)
