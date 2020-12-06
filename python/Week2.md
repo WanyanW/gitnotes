@@ -71,4 +71,12 @@ else:
 	else:
 		do other thing 2
 ```
-3. 
+3. elif
+```
+if *condition*:
+	do something
+else:
+	if *sub-condition*:
+		do other thing 1
+	else:
+		do other thing 2
