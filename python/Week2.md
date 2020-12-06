@@ -49,4 +49,5 @@
 ### Boolean expression
 1. ==, !=
 2. and, or, not
-3. 
+3. in, not in
+	1. 'p' in 'apple' -- True
