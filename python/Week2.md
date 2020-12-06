@@ -116,5 +116,16 @@ for n in nums:
 	   print(id(b)) # the id of a and b are different
 	```
 4. aliasing
-	1. 
+	1. ``` 
+	   a = [1, 2, 3]
+	   b = [1, 2, 3]
+	   print(a is b) # False
+
+	   b = a
+	   b[0] = 5
+	   print(a) # [5, 82, 83]
+	   print(a == b) # True
+	   # a and b are different list with same values
+	   print(id(a)) 
+	   print(id(b)) # the id of a and b are different
 
