@@ -110,6 +110,9 @@ for n in nums:
 	   a = [1, 2, 3]
 	   b = [1, 2, 3]
 	   print(a is b) # False
-	
+	   print(a == b) # True
+	   # a and b are different list with same values
+	   print(id(a)) 
+	   print(id(b)) # the id of a and b are different
 	```
 
