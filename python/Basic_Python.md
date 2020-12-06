@@ -140,7 +140,7 @@ for n in nums:
 ### methods on lists
 1. append
 	1. mylist.append(value)
-	2. append vs concatenate
+	2. append vs concatenate: append add to the original list, concatenate create a new list
 2. insert
 	1. mylist.insert(index, value)
 3. count
