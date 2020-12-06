@@ -61,4 +61,9 @@ else:
 	do other thing
 ```
 1. omitting the cluse: unary selection
-2. 
+2. nested conditionals
+if *condition*:
+	do something
+else:
+	do other thing
+3. 
