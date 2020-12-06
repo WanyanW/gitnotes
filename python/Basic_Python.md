@@ -148,4 +148,7 @@ for n in nums:
 	1. mylist.index(value) # tell which index is the value
 5. reverse
 	1. mylist.reverse() # take the order and reverse
-6. 
+6. sort
+	1. mylist.sort() # sort from small to big
+7. remove
+	1. mylist.remove(value)
