@@ -88,7 +88,7 @@ for char in pharse:
 			num += 1
 ```
 ```
-# find the largest number
+# track the highest value
 best_num = nums[0]
 for n in nums:
 	if n > best_num:
