@@ -79,3 +79,5 @@ elif: *condition 2*:
 	do other thing 1
 else:
 	do other thing 2
+4. example - combina accumulator pattern with conditionals
+	
