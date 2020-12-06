@@ -142,3 +142,7 @@ for n in nums:
 	1. mylist.append(num)
 2. insert
 	1. mylist.insert(index, num)
+3. count
+	1. mylist.count(value) #count how many elements == value
+4. index
+	1. mylist.index(value)
