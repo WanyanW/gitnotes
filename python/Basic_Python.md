@@ -145,7 +145,7 @@ for n in nums:
 	origlist = [45,32,88]
  	aliaslist = origlist
  	origlist += ["cat"]
- 	origlist = origlist + ["cow"]
+ 	origlist = origlist + ["cow"] 
 	```
 2. insert
 	1. mylist.insert(index, value)
