@@ -87,3 +87,8 @@ for char in pharse:
 			num += 1
 ```
 ```
+best_num = nums[0]
+for n in nums:
+	if n > best_num:
+		best_num = n
+```
