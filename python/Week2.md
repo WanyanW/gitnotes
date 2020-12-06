@@ -101,4 +101,4 @@ for n in nums:
 	1. delete some elements: 
 	```
 	alist = ['a', 'b', 'c', 'd']
-	alist[1:3] = [] # delete element 
+	alist[1:3] = [] # delete elements from index 1 up to not including index 3 
