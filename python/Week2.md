@@ -55,7 +55,7 @@
 
 ### conditional execution
 ```
-if condition:
+if *condition*:
 	do something
 else:
 	do other thing
