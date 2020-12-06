@@ -138,5 +138,7 @@ for n in nums:
 	   print(b) # [5, 82, 83]
 	   ```
 ### methods on lists
-1. 
+1. append
+	1. mylist.append[num]
 
+2. 
