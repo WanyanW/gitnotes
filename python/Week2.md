@@ -96,3 +96,4 @@ for n in nums:
 ```
 
 ### sequence mutation
+1. string is immut
