@@ -139,6 +139,6 @@ for n in nums:
 	   ```
 ### methods on lists
 1. append
-	1. mylist.append[num]
-
-2. 
+	1. mylist.append(num)
+2. insert
+	1. mylist.insert(index, num)
