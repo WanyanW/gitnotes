@@ -54,4 +54,9 @@
 	2. '' in 'a' -- True
 
 ### conditional execution
-1. if ...
+```
+if condition:
+	do something
+else:
+	do other thing
+```
