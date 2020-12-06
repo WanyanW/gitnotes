@@ -45,3 +45,6 @@
 	1. range(x) equals to [0, 1, 2, ... , x-1] up to not including x
 	2. range(0, 5) equals to range(5)
 	3. range() don't produce a list, you have to cast `range` to the list by list(range(5))
+
+### Boolean expression
+1. == and !=
