@@ -80,13 +80,15 @@ elif: *condition 2*:
 else:
 	do other thing 2
 ```
-4. examples - combina accumulator pattern with conditionals (count char number excluding space)
+4. examples - combina accumulator pattern with conditionals
 ```
+#count char number excluding space)
 for char in pharse:
 		if char !=" "
 			num += 1
 ```
 ```
+# find the largest number
 best_num = nums[0]
 for n in nums:
 	if n > best_num:
