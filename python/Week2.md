@@ -79,5 +79,7 @@ elif: *condition 2*:
 	do other thing 1
 else:
 	do other thing 2
-4. example - combina accumulator pattern with conditionals
-	
+4. example - combina accumulator pattern with conditionals (count char numb
+	for char in pharse:
+		if char !=" "
+			num += 1
