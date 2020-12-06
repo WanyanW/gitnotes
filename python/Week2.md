@@ -52,3 +52,6 @@
 3. in, not in
 	1. 'p' in 'apple' -- True (substring in string)
 	2. '' in 'a' -- True
+
+### conditional execution
+1. if ...
