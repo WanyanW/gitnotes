@@ -167,4 +167,5 @@ for n in nums:
 1. upper(), lower()
 	1. ss.upper() # don't mutate ss
 2. count() ss.count("l")
-3. 
+3. strip
+	1. ss.strip() # get rid of white spaces at the start and end
