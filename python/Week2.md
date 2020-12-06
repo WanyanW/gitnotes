@@ -104,4 +104,4 @@ for n in nums:
 	alist[1:3] = [] # delete elements from index 1 up to not including index 3 
 	2. can also delete by `del alist[1:3]`
 3. objects and references
-	1. 2 variables pointed to the same 
+	1. 2 variable names pointed to the same value -- a is b is True
