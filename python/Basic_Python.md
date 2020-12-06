@@ -161,3 +161,9 @@ for n in nums:
 	1. mylist.remove(value) #specify the value, diff from del mylist[index]
 8. pop
 	1. mylist.pop() # remove the last item
+
+
+### methods on strings
+1. upper()
+	1. ss.upper()
+2. 
