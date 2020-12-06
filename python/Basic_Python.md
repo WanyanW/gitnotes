@@ -137,5 +137,6 @@ for n in nums:
 	   print(a) # [81, 82, 83]
 	   print(b) # [5, 82, 83]
 	   ```
-
+### methods on lists
+1. 
 
