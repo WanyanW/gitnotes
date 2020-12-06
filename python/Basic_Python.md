@@ -139,10 +139,13 @@ for n in nums:
 	   ```
 ### methods on lists
 1. append
-	1. mylist.append(num)
+	1. mylist.append(value)
 2. insert
-	1. mylist.insert(index, num)
+	1. mylist.insert(index, value)
 3. count
 	1. mylist.count(value) #count how many elements == value
 4. index
-	1. mylist.index(value)
+	1. mylist.index(value) # tell which index is the value
+5. reverse
+	1. mylist.reverse() # take the order and reverse
+6. 
