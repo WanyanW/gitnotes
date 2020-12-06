@@ -116,13 +116,13 @@ for n in nums:
 	   print(id(b)) # the id of a and b are different
 	```
 4. aliasing
-	1. Because the same list has two different names, a and b, we say that it is aliased. Changes made with one alias affect the other
+	1. the same list has two different names, a and b, we say that it is aliased. Changes made with one alias affect the other
 	2. ``` 
 	   a = [1, 2, 3]
 	   b = [1, 2, 3]
 	   print(a is b) # False
 
-	   b = a
+	   b = a #the value of b has been reassigned to the value of a.
 	   b[0] = 5
 	   print(a) # [5, 82, 83]
 	   ```
