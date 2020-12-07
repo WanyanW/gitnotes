@@ -171,3 +171,6 @@ for n in nums:
 	1. ss.strip() # get rid of white spaces at the start and end
 4. replace #replace substring with substring
 	1. ss.replace("l", "ls")
+| Method | Parameters | Description |
+|-|-|-|
+| upper |content2|content3|
