@@ -178,5 +178,4 @@ for n in nums:
 | index | item | Returns the leftmost index where the substring item is found and causes a runtime error if item is not found|
 | strip | none | Returns a string with the leading and trailing whitespace removed|
 | replace | old, new | Replaces all occurrences of old substring with new|
-
-
+| format | substitutions | makes substitutions into places in a string enclosed in braces|
