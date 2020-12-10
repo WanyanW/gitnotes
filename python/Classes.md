@@ -1,5 +1,5 @@
 1. main module (the collection of variables that you have access to in a script executed at the top level and in calculator mode).
-2. Within a module, the module’s name (as a string) is available as the value of the global variable ***__name__****
+2. Within a module, the module’s name (as a string) is available as the value of the global variable `__name__`
 3. ***Namespace***: a *namespace* is a mapping from names to objects
 	1. The namespace containing the built-in names is created when the Python interpreter starts up, and is never deleted. 
 	2. The global namespace for a module is created when the module definition is read in; normally, module namespaces also last until the interpreter quits. 
