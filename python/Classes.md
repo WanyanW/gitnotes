@@ -15,11 +15,7 @@
 	2. The global namespace for a module is created when the module definition is read in; normally, module namespaces also last until the interpreter quits. 
 	3. The local namespace for a function is created when the function is called, and deleted when the function returns or raises an exception that is not handled within the function.
 7. A *scope* is a textual region of a Python program where a namespace is directly accessible. “Directly accessible” here means that an unqualified reference to a name attempts to find the name in the namespace.
-	1. the innermost scope, which is searched first, contains the local names
-
-the scopes of any enclosing functions, which are searched starting with the nearest enclosing scope, contains non-local, but also non-global names
-
-the next-to-last scope contains the current module’s global names
-
-the outermost scope (searched last) is the namespace containing built-in name
+	1. the innermost scope, which is searched first, contains the local names the scopes of any enclosing functions, which are searched starting with the nearest
+	2. enclosing scope, contains non-local, but also non-global names the next-to-last scope contains the current module’s global names the outermost scope (searched last) is the namespace containing built-in names
 8. *class* (模具) -- create *objecte*/*instances* (实物)
+9. 
