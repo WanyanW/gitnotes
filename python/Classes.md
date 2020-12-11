@@ -3,7 +3,7 @@
 	1. the code in the module will be executed, just as if you imported it, with the `__name__` set to `"__main__"`
 3. Packages: collection of modules. 
 	1. the module name A.B designates a submodule named B in a package named A.
-4. The `__init__.py` files are required to make Python treat directories containing the file as packages. In the simplest case, __init__.py can just be an empty file, but it can also execute initialization code for the package or set the `__all__` variable, described later.
+4. The `__init__.py` files are required to make Python treat directories containing the file as packages. In the simplest case, __init__.py can just be an empty file, but it can also execute initialization code for the package or set the `__all__` variable.
 5. ***Namespace***: a *namespace* is a mapping from names to objects
 	1. The namespace containing the built-in names is created when the Python interpreter starts up, and is never deleted. 
 	2. The global namespace for a module is created when the module definition is read in; normally, module namespaces also last until the interpreter quits. 
