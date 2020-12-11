@@ -1,4 +1,6 @@
 1. main module (the collection of variables that you have access to in a script executed at the top level and in calculator mode).
+	1. python foo.py means running the module foo (the source file) as the main program
+	2. the interpreter will assign the hard-coded string `"__main__"` to the `__name__` variable, i.e.
 2. Within a module, the module’s name (as a string) is available as the value of the global variable `__name__`
 	1. the code in the module will be executed, just as if you imported it, with the `__name__` set to `"__main__"`
 3. Packages: collection of modules. 
